@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load resources_extra %}
+{% block title %}Home {% endblock %}
+
+{% block content %}
+{% for entry in vehicle_entries %}
+<div class="alert alert-info">
+    <h2 class="label label-default">{{entry.name | replace:'o'}}</h2>
+    <span class="panel panel-info">{{entry.plate}}</span>
+    <br >
+</div>
+{% endfor %}
+{% endblock %}
