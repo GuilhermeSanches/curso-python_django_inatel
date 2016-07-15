@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 {% load resources_extra %}
+{% load vehicle_tags %}
 {% block title %}Home {% endblock %}
 
 {% block content %}
-{% for entry in vehicle_entries %}
+{% get_vehicle 5 as vehicle_list %}
+{% for vehicle in vehicle_list %}
 <div class="alert alert-info">
-    <h2 class="label label-default">{{entry.name | replace:'o'}}</h2>
-    <span class="panel panel-info">{{entry.plate}}</span>
+    <h2 class="label label-default">{{vehicle.name }}</h2>
+    <span class="panel panel-info">{{vehicle.license_plate | replace:2}}</span>
     <br >
 </div>
 {% endfor %}
